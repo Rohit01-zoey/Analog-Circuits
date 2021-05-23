@@ -19,3 +19,4 @@
 ## Tutorials
 1. [IITB tuts on Ngspice](https://www.youtube.com/watch?v=r5qZhJfwRLU)
 2. [NGSPICE Site tuts](http://ngspice.sourceforge.net/ngspice-tutorial.html)
+3. [NGSPICE MANUAL](ngspice-34-manual.pdf)
