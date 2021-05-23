@@ -16,6 +16,10 @@
 
 
 ---
+## Files
+Dowload from this [site](http://ptm.asu.edu/latest.html)
+
+---
 ## Tutorials
 1. [IITB tuts on Ngspice](https://www.youtube.com/watch?v=r5qZhJfwRLU)
 2. [NGSPICE Site tuts](http://ngspice.sourceforge.net/ngspice-tutorial.html)

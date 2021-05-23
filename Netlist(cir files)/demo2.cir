@@ -1,0 +1,29 @@
+****************DEMO*****************
+**********including the model file
+.include cmos_130nm.txt
+****************************
+VDD net1 GND 1.5
+RD net1 vout 10k
+VG vin GND 0.6
+
+* Mosfet M1  Drain Gate Source Body
+
+M1 vout vin GND  GND NMOS W = 1u L = 130n
+*******************ANALYSIS*************8
+.control
+*********DC Analysis
+***********DC SWEEP***************8
+****dc VG 0 1.5 0.01
+**plot V(vout) 
+*By default the x axis is VG
+*************************************
+* for transistor characteritics we ned to save them first
+save all @M1[id]
+save all @M1[gm]
+dc VG 0 1.5 0.01
+***[IMP] write this statement above and below save all statements
+plot @M1[id]
+plot @M1[gm]
+plot @M1[id] vs V(vout)
+.endc
+.end

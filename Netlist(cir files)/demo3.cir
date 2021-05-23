@@ -1,21 +1,20 @@
-****************DEMO*****************
+
+Demo3 netlist
+****************DEMO3*****************
 **********including the model file
 .include cmos_130nm.txt
 ****************************
 VDD net1 GND 1.5
 RD net1 vout 10k
-VG vin GND 0.6
+VG vin GND SIN(0.4 50m 10k)
 
 * Mosfet M1  Drain Gate Source Body
 
 M1 vout vin GND  GND NMOS W = 1u L = 130n
 *******************ANALYSIS*************8
 .control
-*********DC Analysis
-op
-print @M1[id]
-print @M1[gm]
-print V(vout)
-
+*********AC Analysis
+tran 1u 0.5m
+plot V(vout) v(in)
 .endc
 .end
