@@ -13,6 +13,12 @@
 1. Installing Ngspice 
     * Download from the following [site](http://ngspice.sourceforge.net/download.html#bin1)
     * **GUI installation** same site as above under "Ngspice GUI" 
+2. Installing xciruit
+    * Download the following executable [Xcircuit](https://www.oocities.org/sw286000/Setup.zip)
+    * *if the above link is broken* do the following 
+        * Go to this [site](http://opencircuitdesign.com/xcircuit/)
+        * Scroll down to [XCircuit for Windows (native)](http://www.oocities.com/sw286000)
+        * Click on it, and then scroll down to "Download" and then download "Self-installable executable"
 
 
 ---
