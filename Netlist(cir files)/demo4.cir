@@ -1,0 +1,24 @@
+
+****************DEMO4*****************
+**********including the model file
+.include cmos_130nm.txt
+****************************
+VDD net1 GND 1.5
+RD net1 vout 100k
+** See the effect of increasing the output resistance
+VG vin GND dc 0.5 ac 1
+
+* Mosfet M1  Drain Gate Source Body
+
+M1 vout vin GND  GND NMOS W = 1u L = 130n
+*******************ANALYSIS*************8
+.control
+*********AC frequency response
+ac dec 100 1 100G
+** decade plot 
+plot Vdb(vout)
+** db implies decibal response
+plot ph(vout)
+* ph implies phase plot for the given node
+.endc
+.end
