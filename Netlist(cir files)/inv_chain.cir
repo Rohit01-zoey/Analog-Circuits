@@ -1,0 +1,25 @@
+.include cmos_130nm.txt
+.param supply = 1.5
+
+.SUBCKT INV INPUT OUTPUT GrND
+
+VDD net1 GrND supply
+MN1 output input GrND GrND NMOS W = 0.5u L = 130n
+MP1 output input net1 net1 PMOS W = 1u L = 130n
+
+.ENDS INV
+
+Vin input GND pulse(0 supply 0 0.5p 0.5p 0.1u 0.2u)
+X1 input net1 GND INV
+X2 net1 net2 GND INV
+X3 net2 net3 GND INV
+X4 net3 output GND INV
+C1 output GND 0.1p
+**********************
+.tran 1p 0.4u
+.measure tran T_delay trig v(input) val = 0.5*supply rise = 1 targ v(output) val = 0.5*supply rise = 1
+.control 
+run
+plot v(net3) v(input)+2
+.endc
+.end

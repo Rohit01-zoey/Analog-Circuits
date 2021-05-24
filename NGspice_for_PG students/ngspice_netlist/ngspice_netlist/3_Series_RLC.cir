@@ -1,0 +1,39 @@
+Series RLC circuit Find F0, BW, Q factor
+
+R1 net1 net2 15
+L1 net2 net3 25m
+C1 net3 net_dummy 1u
+Vdummy net_dummy gnd 0V
+
+Vin net1 gnd dc 0 ac 1
+
+.control
+ac dec 1000 100 10K  * (linear/octave/decade number_of_points start_freq end_freq)
+plot i(Vdummy)
+
+*These measure statements are optional. Can be seen from graph as well. But this is precise
+*Store the magnitude response data to variable i_vec
+let i_vec = mag(i(Vdummy))
+
+*Find the peak current value from this vector
+let i_max = vecmax(i_vec)
+
+*Measure resonant frequency from peak value obtained
+meas ac f0 when i_vec=i_max
+
+*Find the first 3-db point to the left of f0
+let i_half_power=i_max*0.707
+meas ac f1 when i_vec=i_half_power
+
+*Calculate bandwidth
+let bandwidth=2*(f0-f1) 
+print bandwidth
+
+*Calculate Quality factor
+let q_factor=f0/bandwidth
+print q_factor
+
+.endc
+.end
+
+*Check the terminal for all values of f0, Band-width and Q.

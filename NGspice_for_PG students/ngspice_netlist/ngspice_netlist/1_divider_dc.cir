@@ -1,0 +1,16 @@
+This is a resistive divider circuit.
+
+R1 net_a net_b 10k
+R2 net_b gnd 10k
+
+*voltage supply
+v1 net_a gnd dc 1V 	
+
+.control
+*************Operating point********
+*op
+***************DC sweep**************
+dc v1 0 10	0.1
+plot v(net_b) v(net_a)
+.endc
+.end

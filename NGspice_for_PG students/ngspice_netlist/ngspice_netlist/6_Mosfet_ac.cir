@@ -1,0 +1,17 @@
+Ac analysis for Common source amplifier with Resistive load
+
+.include spice_model.txt
+
+M1 net_d net_g gnd gnd cmosn W=1u L=0.18u 
+R1 net_d Vdd 10k
+
+*voltage supply
+V1 Vdd gnd dc 1.8
+Vgs	net_g gnd dc 0.75 ac 1
+	
+.control
+ac dec 100 1 100G
+plot vdb(net_d)
+plot phase(v(net_d))
+.endc
+.end

@@ -1,0 +1,20 @@
+This is a simple diode circuit with a resistor and capacitor.
+
+d1 net1 net2
+R1 net2 gnd 100k
+C1 net2 gnd 10p
+
+*Vin1 net1 gnd PULSE(0 1 2n 2n 2n 50n 100n )
+Vin net1 gnd dc 0.8 ac 1
+
+.control
+*Transient Analysis
+*tran 0.2u 1u
+*plot v(net1) v(net2)
+
+*AC analysis
+ac dec 1000 100 10K  
+plot vdb(net2)
+.endc
+.end
+

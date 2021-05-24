@@ -1,0 +1,19 @@
+Opmap Non-inverting amplifier
+
+.include opAmp_basic.txt
+
+X1 vin_p vin_n Vdd_p Vdd_n out uA741
+
+V1 Vdd_p gnd 15V
+V2 Vdd_n gnd -15V
+
+R1 vin_n out 100k
+R2 vin_n gnd 10k
+
+Vin	vin_p gnd sin(0 1 10k 0 0)
+
+.control
+tran 0.2us 1ms	
+plot v(out)
+.endc
+.end
